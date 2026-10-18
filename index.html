@@ -88,7 +88,15 @@ nav{
 }
 .hero h1 .g{background:linear-gradient(95deg,#a5b4fc,#d8b4fe 55%,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .sub{margin-top:22px;font-size:clamp(16px,2vw,19px);color:#aab2d0;max-width:640px;font-weight:500;line-height:1.75}
-.hero .name-row{margin-top:34px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.hero .name-row{margin-top:34px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-photo{
+  width:92px;height:92px;border-radius:50%;object-fit:cover;flex:none;
+  border:3px solid transparent;
+  background-image:linear-gradient(#0b1020,#0b1020),var(--grad);
+  background-origin:border-box;background-clip:padding-box,border-box;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+}
+@media(max-width:560px){.hero-photo{width:72px;height:72px}}
 .hero .name{font-size:24px;font-weight:800;letter-spacing:-.01em}
 .hero .name-en{font-size:13px;letter-spacing:.22em;color:#8f97b8;font-weight:600}
 .contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
@@ -214,6 +222,19 @@ section{padding:88px 0}
 .proj-body ul{margin:14px 0 0 2px;list-style:none;display:grid;gap:7px}
 .proj-body ul li{position:relative;padding-left:16px}
 .proj-body ul li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--a2);opacity:.6}
+.adv{margin-top:12px;padding:15px 16px 13px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.adv+.adv{margin-top:10px}
+.adv-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.adv-head h5{margin:0;font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+.adv-budget{font-size:11.5px;font-weight:800;color:var(--a1);background:rgba(79,70,229,.08);border-radius:999px;padding:3px 10px}
+.adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 26px;margin-top:8px}
+.adv-grid ul{margin-top:4px;gap:5px}
+.adv-label{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--a1);text-transform:uppercase;margin:10px 0 0;display:flex;align-items:center;gap:6px}
+.adv-label::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--grad)}
+.proj-body .adv-check{margin-top:10px;gap:4px}
+.proj-body .adv-check li{padding-left:18px;font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.55}
+.proj-body .adv-check li::before{content:"✓";left:0;top:0;width:auto;height:auto;border-radius:0;background:none;opacity:1;color:var(--a1);font-weight:800;font-size:13px}
+@media(max-width:640px){.adv-grid{grid-template-columns:1fr}}
 .kpi-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
 .kpi-pill{
   font-size:13px;font-weight:700;color:#fff;background:linear-gradient(95deg,#4f46e5,#7c3aed);
@@ -265,6 +286,42 @@ section{padding:88px 0}
 .aw-card.edu{grid-column:1/-1;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .aw-card.edu .aw-icon{margin-bottom:0}
 .aw-card.edu p{margin:0 0 0 auto;font-size:14px;color:var(--ink-soft)}
+.aw-card.ev{cursor:pointer}
+.aw-card.ev:focus-visible{outline:3px solid rgba(79,70,229,.45);outline-offset:2px}
+.ev-hint{margin-top:14px;font-size:12.5px;font-weight:700;color:var(--a1);display:inline-flex;align-items:center;gap:5px}
+.modal-backdrop{
+  position:fixed;inset:0;z-index:1200;background:rgba(11,16,32,.55);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;transition:opacity .25s;
+}
+.modal-backdrop.open{opacity:1}
+.modal{
+  background:var(--surface);border-radius:20px;box-shadow:var(--shadow-lg);
+  max-width:660px;width:100%;max-height:min(84vh,760px);
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:translateY(14px) scale(.98);transition:transform .25s;
+}
+.modal-backdrop.open .modal{transform:none}
+.modal-head{display:flex;align-items:center;gap:14px;padding:22px 24px;border-bottom:1px solid var(--line);flex:none}
+.modal-head .aw-icon{margin-bottom:0;flex:none}
+.modal-kicker{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--a1);text-transform:uppercase}
+.modal-head h3{font-size:18px;font-weight:800;letter-spacing:-.01em;margin-top:2px}
+.modal-close{
+  margin-left:auto;flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  background:var(--bg);cursor:pointer;display:grid;place-items:center;transition:.2s;
+}
+.modal-close:hover{background:rgba(79,70,229,.1);border-color:rgba(79,70,229,.35)}
+.modal-close svg{width:15px;height:15px;stroke:var(--ink-soft);stroke-width:2.4;fill:none;stroke-linecap:round}
+.modal-body{padding:6px 26px 28px;overflow:auto}
+.eval-year+.eval-year{margin-top:24px;padding-top:20px;border-top:1px dashed var(--line)}
+.eval-yr{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--a1);margin:16px 0 10px;display:flex;align-items:center;gap:8px}
+.eval-yr::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.eval-src{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.06em;margin:12px 0 6px}
+.eval-year p{font-size:14px;color:var(--ink-soft);line-height:1.8;white-space:pre-line}
+.eval-year .kpi-row{margin-top:0}
+.eval-pending{font-size:13px;color:var(--muted);font-style:italic}
+@media(max-width:560px){.modal-backdrop{padding:0;align-items:flex-end}.modal{max-height:92vh;border-radius:20px 20px 0 0}.modal-head{padding:18px 18px}.modal-body{padding:4px 18px 24px}}
 
 /* ---------- media ---------- */
 .media-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -325,7 +382,7 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
 @media print{
-  nav,#progress{display:none}
+  nav,#progress,.modal-backdrop{display:none}
   .hero{background:var(--dark)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .reveal{opacity:1!important;transform:none!important}
   details{display:block}
@@ -358,6 +415,7 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
     <h1>데이터와 AI를 활용해<br><span class="g">전략을 설계하고 실행하는</span> 기획자</h1>
     <p class="sub">사업 운영 전반을 구조적으로 바라보고, 데이터 기반 전략 설계부터 실행·성과 창출까지 연결해온 이커머스 영업 기획 전문가</p>
     <div class="name-row">
+      <img class="hero-photo" src="profile.jpg" alt="전소라 프로필 사진">
       <span class="name">전소라</span>
       <span class="name-en">JEON SORA</span>
     </div>
@@ -480,8 +538,8 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
       </div>
       <div class="hl-card reveal d1">
         <div class="hl-num">+<span data-count="110">0</span><small>%</small></div>
-        <div class="hl-label">프로모션 신청 건수 (YoY)</div>
-        <div class="hl-desc">Seller Benefit Program — 판매자당 평균 GMV YoY +21% 동시 달성</div>
+        <div class="hl-label">SBP 참여 셀러 수 (YoY)</div>
+        <div class="hl-desc">Seller Benefit Program — 셀러당 GMV 3.3천만→4.0천만 원(+21%) 동시 달성</div>
       </div>
       <div class="hl-card reveal d2">
         <div class="hl-num"><span data-count="4.7" data-dec="1">0</span><small>/5.0</small></div>
@@ -532,6 +590,7 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
                 <li>영업조직별 KPI/Target·실적 산정 기준 수립·표준화, DB 기반 전사 Seller·실적 Tracking 체계 구축</li>
                 <li>GMV, TR, SA, 광고 Adoption 등 핵심 영업지표 분석 및 개선 과제 발굴</li>
                 <li>대규모 Raw Data를 AI로 분석·구조화해 조직/Account별 성과 리포트 및 Dashboard 제작 — 반복 업무 효율화·데이터 기반 의사결정 지원</li>
+                <li>영업자(MD)가 영업에 즉시 활용할 수 있는 지표 중심 카테고리별 <b>Monthly Seller Insight 리포트</b> 제공 — 영업 효율성·성과 상승에 직접 기여했다는 MD 피드백 다수 확보, 타 조직 확대 적용 요청</li>
               </ul>
               <div class="kpi-row">
                 <span class="kpi-pill dark">중복·예외 관리 Account 통합 → 조직 간 관리 충돌 최소화</span>
@@ -596,6 +655,22 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
               </ul>
             </div>
           </details>
+
+          <details class="proj">
+            <summary>
+              <span class="arrow"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span>
+              PCS OFF 판매자 Impact 분석 — 전사 정책 대응
+              <span class="kpi-mini">Cohort · 상관관계 분석</span>
+            </summary>
+            <div class="proj-body">
+              <ul>
+                <li>전사 정책(PCS OFF) 이후 판매자 Impact 분석 및 차후 대응 방안 도출 — 분석 방향성·필요 지표 정의 주도</li>
+                <li>판매자 지표 및 분석 기준 정의, 채널 OFF 전후 Cohort·상관관계 분석 설계·수행</li>
+                <li>채널(PCS, WOM, IM)별 카테고리·판매자 거래등급 변화 분석</li>
+                <li>가설 설정 → 데이터 분석 계획안 수립 → 데이터 가공·분석 → 보고 장표 작성</li>
+              </ul>
+            </div>
+          </details>
         </div>
       </article>
 
@@ -619,7 +694,7 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
           <details class="proj">
             <summary>
               <span class="arrow"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span>
-              상생페스티벌 — 국내 유일 중소셀러 동반성장 박람회 총괄
+              상생페스티벌 — 국내 유일 중소셀러 동반성장 온/오프라인 박람회 총괄
               <span class="kpi-mini">매출 610억 · 참여 판매자 +45%</span>
             </summary>
             <div class="proj-body">
@@ -630,11 +705,13 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
                 <li>'상생 팝업스토어'(이마트 월계점) 기획·운영 총괄 — 진열 방식·부스 디자인·고객 동선 설계, SNS·앱 푸시 홍보 콘텐츠 제작</li>
                 <li>온/오프라인 포스터 제휴코드 삽입으로 유입 경로 분석·효과 측정 체계 구축</li>
                 <li>지방 간담회·지원사업 설명회 직접 진행으로 판매자 모집 확대</li>
+                <li>오프라인 시상식 기획·진행 — 수상자·정부기관 관계자 등 약 120명 참석, 브랜드 가치·신뢰도 강화</li>
               </ul>
               <div class="kpi-row">
                 <span class="kpi-pill">참여 판매자 +45% — 역대 최대 규모</span>
                 <span class="kpi-pill">행사 전체 매출 610억 원 (+47%)</span>
                 <span class="kpi-pill">일평균 매출 8.7억 원 (+24%)</span>
+                <span class="kpi-pill">제19회 기준 — 1,300여 중소셀러 지원 · 누적 거래액 900억 원 · 우수 판매자 33명 시상</span>
                 <span class="kpi-pill t">상생교육 만족도 4.7/5.0</span>
               </div>
               <div class="links-row">
@@ -647,18 +724,19 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
             <summary>
               <span class="arrow"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span>
               Seller Benefit Program — 신규 판매자 성장 프로그램
-              <span class="kpi-mini">신청 건수 YoY +110%</span>
+              <span class="kpi-mini">참여 셀러 YoY +110%</span>
             </summary>
             <div class="proj-body">
               <ul>
                 <li>시장 분석·경쟁사 동향·판매자 니즈 조사 기반 '내부 Test 프로그램' 기획·운영</li>
+                <li>수수료·광고비 지원 등 혜택 설계(혜택 업그레이드, 참여 기준 조정, 선택적 참여 등)로 핵심 셀러 육성 및 성과 확대</li>
                 <li>테스트 결과·판매자 설문 인사이트를 반영한 '외부 오픈형 성장 프로그램'으로 확장</li>
                 <li>판매자 생애주기 데이터 분석으로 성장 기회 구간 정의, 내부 테스트 데이터로 외부 프로그램 성과 개선</li>
               </ul>
               <div class="kpi-row">
-                <span class="kpi-pill">프로모션 신청 건수 YoY +110%</span>
-                <span class="kpi-pill">판매자당 평균 GMV YoY +21%</span>
-                <span class="kpi-pill t">노출 상품 대비 판매 상품 수 증가 — 실질 성과 창출</span>
+                <span class="kpi-pill">참여 셀러 84명 → 176명 (YoY +110%)</span>
+                <span class="kpi-pill">셀러당 GMV 3.3천만 → 4.0천만 원 (+21%)</span>
+                <span class="kpi-pill t">내부 Test → 오픈형 프로그램 확장 실행</span>
               </div>
             </div>
           </details>
@@ -686,7 +764,29 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
           <details class="proj">
             <summary>
               <span class="arrow"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span>
-              정부 · 지자체 협업 사업 — 서울시 MOU, 중기부 TOPS
+              G셀러 빅 페스타 — 미입점·이탈 셀러 재유입 캠페인
+              <span class="kpi-mini">신규 가입 셀러 YoY +18%</span>
+            </summary>
+            <div class="proj-body">
+              <ul>
+                <li>신세계그룹–알리바바 JV 설립에 따른 외부 셀러 유입 기회를 활용한 <b>미입점·이탈 셀러 대상 재유입 캠페인</b> 전체 기획 및 운영 리드</li>
+                <li>프로모션 유입 → 혜택 인지 → 입점 상담 연결의 가입 퍼널 구조 설계, 가입 프로세스 내 프로모션 노출 기획</li>
+                <li>프로그램 네이밍·슬로건 기획(혜택 직관 전달), 핵심 타깃(미입점/이탈 셀러) 메시지 전략 수립·카피라이팅, 디자인/개발 협업 리딩</li>
+                <li>판매 지원금 120만 원, 0% 광고쿠폰, 이용료 면제 등 직접 혜택 중심의 실질 매출 기여 구조 설계</li>
+                <li>네이버 검색광고·판매자 커뮤니티 등 채널 운영 및 예산 관리, 주요 KPI(가입 수·전환율·거래액) 설정·성과 분석</li>
+              </ul>
+              <div class="kpi-row">
+                <span class="kpi-pill">신규 가입 셀러 전년 동월 대비 +18%</span>
+                <span class="kpi-pill">신규 셀러 거래 활성화 지표(25만 원 이상) 유의미한 증가</span>
+                <span class="kpi-pill t">광고성 이머니 지급 기반 초기 판매 유도 → 광고 사용률 개선·초기 정착 효과 확보</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="proj">
+            <summary>
+              <span class="arrow"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span>
+              정부 · 지자체 협업 사업 — 서울시 MOU, 중소벤처기업부 TOPS 프로그램
               <span class="kpi-mini">3자 협약 주도 · 400개사 지원</span>
             </summary>
             <div class="proj-body">
@@ -695,6 +795,24 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
                 <li><b>2025 온라인 브랜드 소상공인 육성사업(TOPS, 중기부·중소기업유통원):</b> 1차 400개사 → 2차 40개사 → 3차 4개사 단계별 성장 프로그램 — 온라인 기획전 운영, 컨설팅 기획, 마케팅 프로모션 지원</li>
                 <li><b>지자체 협업:</b> 경기도·부산·충북·대전·경북 등 전국 지자체와 협업해 소상공인 720개사·중소기업 220개사 온라인 판로 확대 지원</li>
               </ul>
+            </div>
+          </details>
+
+          <details class="proj">
+            <summary>
+              <span class="arrow"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span>
+              판매자 커뮤니케이션 채널 · 사내 큐레이션 활동
+              <span class="kpi-mini">파트너센터 리뉴얼 · Chat GBT</span>
+            </summary>
+            <div class="proj-body">
+              <ul>
+                <li><b>G마켓/옥션 파트너센터 운영</b> — 단순 정보 전달형 공지에서 카드뉴스·트렌드·활용 콘텐츠로 전환 리뉴얼, 클릭 유도형 구성으로 판매자 흥미·접근성 향상</li>
+                <li><b>Chat GBT (Gmarket Best iTem)</b> — 빅프로모션 기간 영업자가 직접 기획하고 가격 경쟁력을 확보한 상품을 자기 이름을 걸고 추천하는 큐레이션 채널 기획</li>
+                <li>내부 노출 구조가 한정된 상황에서 우수 상품을 더 많은 고객에게 알리기 위한 큐레이션 채널로, 내부 소통과 외부 노출 확대(바이럴)를 동시에 목표로 운영</li>
+              </ul>
+              <div class="kpi-row">
+                <span class="kpi-pill t">Chat GBT 공개 하루 만에 신규 팔로워 14,000명 도달 — 전사 열렬한 반응</span>
+              </div>
             </div>
           </details>
         </div>
@@ -817,13 +935,109 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
               <span class="kpi-mini">UV +31% · ROAS +1,500%</span>
             </summary>
             <div class="proj-body">
-              <ul>
-                <li><b>삼성생명 (월 7억):</b> 효율 키워드 발굴·랜딩 최적화로 UV +31%, 상품별 맞춤 소재로 CTR 1.4%→3.6% / CVR 0.8%→1.7% 개선</li>
-                <li><b>현대해상 (월 5억):</b> GA 기반 주·월간 성과 리포팅, 시간대별 가입 DB 분석으로 광고비 최적화 → CPC 감소·ROAS 상승</li>
-                <li><b>티몬 (월 4억):</b> 가전·컬처 카테고리 키워드 쿼리 분석·확장, 기획전 랜딩 최적화로 ROAS 전주 대비 +1,500%</li>
-                <li><b>빗썸거래소 (월 140억):</b> 캠페인별 실시간 예산·CPC 모니터링, 경쟁사 키워드 분석 기반 입찰 전략 최적화로 점유율 상승</li>
-                <li>A/B 테스트를 활용한 CTR·ROAS 최적화, 매체별/카테고리별/디바이스별 KPI 설정·성과 분석</li>
-              </ul>
+              <div class="adv">
+                <div class="adv-head"><h5>삼성생명</h5><span class="adv-budget">월 예산 7억원 수준</span></div>
+                <ul class="adv-check">
+                  <li>광고 성과 분석을 통한 마케팅 전략 제안</li>
+                  <li>네이버/다음/구글 브랜드/키워드 검색, 파워 컨텐츠 광고 운영</li>
+                  <li>키워드 발굴 및 랜딩 페이지 개선을 통한 광고 성과 최적화</li>
+                </ul>
+                <div class="adv-grid">
+                  <div>
+                    <div class="adv-label">주요 업무</div>
+                    <ul>
+                      <li>효율 키워드 발굴 및 확장 등록을 통한 UV 증가</li>
+                      <li>매체별(네이버, 다음, 구글) / 카테고리별 / 디바이스별 KPI 설정 및 성과 분석</li>
+                      <li>상품별 특성을 반영한 광고 소재 기획 및 랜딩 페이지 개선</li>
+                      <li>A/B 테스트를 활용한 CTR 및 ROAS 최적화</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="adv-label">주요 성과</div>
+                    <ul>
+                      <li>신규 키워드 확장 및 랜딩 최적화를 통해 <b>UV 31% 증가</b></li>
+                      <li>상품별 맞춤 소재 적용 후 <b>CTR(1.4% → 3.6%) / CVR(0.8% → 1.7%) 개선</b></li>
+                      <li>A/B 테스트 결과, 상품별 소재 활용 시 <b>CTR 1.9% 증가 → ROAS 개선 기여</b></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="adv">
+                <div class="adv-head"><h5>현대해상</h5><span class="adv-budget">월 예산 5억원 수준</span></div>
+                <ul class="adv-check">
+                  <li>GA 분석을 통한 광고 성과 리포팅 및 전략 운영</li>
+                  <li>키워드 입찰 및 순위 관리, 랜딩 페이지 최적화</li>
+                </ul>
+                <div class="adv-grid">
+                  <div>
+                    <div class="adv-label">주요 업무</div>
+                    <ul>
+                      <li>GA 기반 주·월간 성과 분석 및 광고 전략 기획</li>
+                      <li>키워드 입찰 조정, 순위 관리, 소재 문구 작성, 랜딩 페이지 기획</li>
+                      <li>BS(브랜드 검색: 다음, 네이버), SA(키워드 검색 광고) 운영 및 효율 분석</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="adv-label">주요 성과</div>
+                    <ul>
+                      <li>시간대별 가입 DB 분석을 통한 광고비 최적화 → <b>CPC 감소 및 ROAS 상승</b></li>
+                      <li>AB 테스트를 통한 <b>광고 효율 개선 및 KPI 목표 달성</b></li>
+                      <li>시간대별 키워드 상향 조정으로 <b>전주 대비 전환율 상승</b></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="adv">
+                <div class="adv-head"><h5>티몬</h5><span class="adv-budget">월 예산 4억원 수준</span></div>
+                <ul class="adv-check">
+                  <li>카테고리(가전, 컬처) 광고 운영 및 랜딩 페이지 최적화</li>
+                  <li>키워드 쿼리 분석을 통한 신규 키워드 추가 및 ROAS 최적화</li>
+                </ul>
+                <div class="adv-grid">
+                  <div>
+                    <div class="adv-label">주요 업무</div>
+                    <ul>
+                      <li>가전·컬처 카테고리 검색 광고 운영 및 랜딩 페이지 개선</li>
+                      <li>키워드 쿼리 분석을 통한 신규 키워드 추가 및 확장</li>
+                      <li>CTR 데이터 기반으로 키워드 입찰 최적화 진행</li>
+                      <li>소비자 니즈에 맞춘 기획전 랜딩 페이지 제작</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="adv-label">주요 성과</div>
+                    <ul>
+                      <li>키워드 확장 및 소재 개선을 통해 <b>ROAS 전주 대비 1,500% 상승</b></li>
+                      <li>검색 랜딩 및 기획전 랜딩 페이지 최적화로 <b>유입 DB 증가</b></li>
+                      <li>키워드 입찰 상·하향 조정을 통한 <b>CTR 및 전환율 개선</b></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="adv">
+                <div class="adv-head"><h5>빗썸거래소</h5><span class="adv-budget">월 예산 140억원 수준</span></div>
+                <ul class="adv-check">
+                  <li>키워드 확장 및 신규 트렌드 키워드 발굴을 통한 광고 성과 극대화</li>
+                  <li>캠페인별 실시간 예산 관리 및 경쟁사 키워드 분석</li>
+                </ul>
+                <div class="adv-grid">
+                  <div>
+                    <div class="adv-label">주요 업무</div>
+                    <ul>
+                      <li>효율 키워드 확장 및 신규 트렌드 키워드 발굴</li>
+                      <li>캠페인별 실시간 예산 소진 모니터링 및 CPC 조정</li>
+                      <li>경쟁사 분석을 통한 키워드 순위 조정 및 광고 전략 수립</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="adv-label">주요 성과</div>
+                    <ul>
+                      <li>트렌드 키워드 발굴 및 확장을 통한 <b>노출 및 클릭 수 증가</b></li>
+                      <li>실시간 CPC 최적화를 통해 <b>예산 소진 속도 조절 및 광고 효율 유지</b></li>
+                      <li>경쟁사 키워드 분석을 통한 <b>입찰 전략 최적화 및 점유율 상승</b></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </details>
         </div>
@@ -850,20 +1064,21 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
         <div class="aw-card">
           <div class="aw-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div>
           <h4>중소벤처기업부 장관 표창</h4>
-          <div class="yr">2025.09 · 제5회 유통상생대회 (개인 수상)</div>
-          <p>중소상공인 판로개척 공로 인정 — 상생교육·판로확대 지원 성과</p>
+          <div class="yr">2025.09</div>
+          <p>상생교육(판매자 오프라인 교육), 상생페스티벌(중소상공인 온라인 기획전), 정부/지자체 협력을 통한 지역 소상공인 활성화 공로를 인정받아 중소벤처기업부 장관 표창</p>
         </div>
         <div class="aw-card reveal d1">
           <div class="aw-icon"><svg viewBox="0 0 24 24"><path d="m8 21 4-2 4 2V3H8Z"/><path d="M16 4h4v4a4 4 0 0 1-4 4"/><path d="M8 4H4v4a4 4 0 0 0 4 4"/></svg></div>
-          <h4>사내 혁신 아이디어 경진대회 '해커톤' 4위</h4>
+          <h4>사내 혁신 아이디어 경진대회 '해커톤' 전체 4위</h4>
           <div class="yr">2023.12 · G마켓 Hackathon 2023</div>
-          <p>3일간 팀 구성 — IT 아이디어 도출 및 비즈니스 모델 완성</p>
+          <p>IT 아이디어 도출 및 비즈니스 모델 완성</p>
         </div>
-        <div class="aw-card reveal d2">
+        <div class="aw-card ev reveal d2" id="eval-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="eval-backdrop">
           <div class="aw-icon"><svg viewBox="0 0 24 24"><path d="M12 20h10"/><path d="m16.5 3.5 4 4L7 21H3v-4Z"/></svg></div>
           <h4>내부평가 Higher 등급</h4>
           <div class="yr">2025 · 상위 약 10%</div>
           <p>정량/정성 성과, 동료평가 및 조직장 평가 종합 획득</p>
+          <span class="ev-hint">클릭하여 연도별 평가 내용 보기 →</span>
         </div>
       </div>
     </div>
@@ -974,7 +1189,7 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
       </a>
     </div>
     <div class="media-note reveal">
-      <b>대외 활동</b> — G마켓 판매자 상생 지원 프로그램 설명회(외부 기관 대상, 3회) 강의 기획·진행, 상생페스티벌 오프라인 행사 기획·진행, SME 판매자 온/오프라인 판로 확대 컨설팅 등 중소상공인 생태계 기여 활동을 지속했습니다.
+      <b>대외 활동</b> — G마켓 판매자 상생 지원 프로그램 설명회(외부 기관 대상, 3회) 강의 기획·진행, 상생페스티벌 오프라인 행사 기획·진행, 정부지원사업 참여 중소판매자 대상 온라인 판로개척 1:1 컨설팅 및 지원사업 선정 위원 활동 등 중소상공인 생태계 기여를 지속했습니다.
     </div>
   </div>
 </section>
@@ -996,6 +1211,43 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
     </div>
   </div>
 </footer>
+
+<!-- ================= EVAL MODAL ================= -->
+<div class="modal-backdrop" id="eval-backdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="eval-title">
+    <div class="modal-head">
+      <div class="aw-icon"><svg viewBox="0 0 24 24"><path d="M12 20h10"/><path d="m16.5 3.5 4 4L7 21H3v-4Z"/></svg></div>
+      <div>
+        <div class="modal-kicker">Internal Review</div>
+        <h3 id="eval-title">내부평가 — 연도별 평가 내용</h3>
+      </div>
+      <button class="modal-close" id="eval-close" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+
+      <div class="eval-year">
+        <div class="eval-yr">2025년</div>
+        <div class="kpi-row">
+          <span class="kpi-pill">평가등급 — Higher (상위 약 10%)</span>
+        </div>
+        <p>정량/정성 성과, 동료평가 및 조직장 평가를 종합하여 Higher 등급을 획득했습니다.</p>
+      </div>
+
+      <div class="eval-year">
+        <div class="eval-yr">2023년</div>
+        <div class="eval-src">매니저 · 팀반</div>
+        <p class="eval-pending">※ 원문 입력 대기 중 — 받는 즉시 그대로 반영합니다.</p>
+      </div>
+
+      <div class="eval-year">
+        <div class="eval-yr">2022년</div>
+        <div class="eval-src">매니저 · 팀반</div>
+        <p class="eval-pending">※ 원문 입력 대기 중 — 받는 즉시 그대로 반영합니다.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -1041,6 +1293,33 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
     });
   }, {threshold:.6});
   document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  var backdrop = document.getElementById('eval-backdrop');
+  var evalCard = document.getElementById('eval-card');
+  var evalClose = document.getElementById('eval-close');
+  var lastFocus = null;
+  function openEval(){
+    lastFocus = document.activeElement;
+    backdrop.hidden = false;
+    requestAnimationFrame(function(){ backdrop.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    evalClose.focus();
+  }
+  function closeEval(){
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function(){ backdrop.hidden = true; }, 250);
+    if(lastFocus) lastFocus.focus();
+  }
+  evalCard.addEventListener('click', openEval);
+  evalCard.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openEval(); }
+  });
+  evalClose.addEventListener('click', closeEval);
+  backdrop.addEventListener('click', function(e){ if(e.target === backdrop) closeEval(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !backdrop.hidden) closeEval();
+  });
 })();
 </script>
 
