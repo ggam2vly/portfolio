@@ -144,13 +144,13 @@ section{padding:88px 0}
 .trans-block h3{font-size:15px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
 .trans-block h3::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--a1)}
 .trans-sub{font-size:13.5px;color:var(--muted);margin:8px 0 16px}
-.trans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.trans-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 @media(max-width:860px){.trans-grid{grid-template-columns:1fr}}
-.trans-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px;box-shadow:var(--shadow)}
+.trans-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column}
 .trans-card .t-no{font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--teal)}
 .trans-card h4{font-size:15.5px;font-weight:800;letter-spacing:-.01em;margin:8px 0}
-.trans-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.65}
-.trans-card .where{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.trans-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:12px}
+.trans-card .where{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
 .trans-card .where b{color:var(--a1);font-weight:700}
 
 /* ---------- highlight numbers ---------- */
@@ -515,26 +515,32 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
     </div>
 
     <div class="trans-block reveal">
-      <h3>업종이 달라도 적용되는 역량</h3>
-      <p class="trans-sub">커머스에서 검증한 방식을 정책·데이터·파트너 운영이라는 세 가지 축으로 정리했습니다. 무대가 바뀌어도 동일하게 작동하는 방식입니다.</p>
+      <h3>기획 · 데이터 · 마케팅 · 파트너십, 네 직군을 경험했습니다</h3>
+      <p class="trans-sub">커머스 플랫폼 안에서 정책 기획자, 데이터 분석가, 퍼포먼스 마케터, 파트너십 매니저의 역할을 모두 맡았습니다. 직군이 바뀔 때마다 성과로 증명해왔습니다.</p>
       <div class="trans-grid">
         <div class="trans-card">
-          <div class="t-no">01</div>
-          <h4>정책 · 운영체계 설계</h4>
-          <p>이해관계가 걸린 규칙을 데이터로 설계하고, 법무·개발·CS 등 7개 부서와 합의해 실행까지 끌고 갑니다. 요금·권한·프로세스가 핵심인 산업일수록 같은 방식이 통합니다.</p>
-          <div class="where">적용 예 — <b>금융 · 통신 · SaaS · 플랫폼</b></div>
+          <div class="t-no">01 · 정책 기획</div>
+          <h4>규칙을 설계하고 조직을 설득했습니다</h4>
+          <p>서버 이용료 과금, 등록 수량, VIP 운영까지 — 이해관계가 걸린 정책을 데이터로 설계하고 법무·개발·CS 등 7개 부서와 합의해 실행했습니다.</p>
+          <div class="where">연 100억 수익 창출 · 예외 판매자 −75%</div>
         </div>
         <div class="trans-card">
-          <div class="t-no">02</div>
-          <h4>데이터 기반 성과관리</h4>
-          <p>KPI 체계 수립, 코호트·생애주기 분석, BI 리포트·대시보드 구축을 반복해왔습니다. 지표 이름만 바꾸면 어떤 산업에도 그대로 적용할 수 있는 역량입니다.</p>
-          <div class="where">적용 예 — <b>전 산업 공통</b></div>
+          <div class="t-no">02 · 데이터 분석</div>
+          <h4>지표로 문제를 정의하고 검증했습니다</h4>
+          <p>KPI 체계와 코호트·생애주기 분석을 설계하고, Databricks SQL·BI 대시보드·AI 자동화로 전사 의사결정을 지원했습니다.</p>
+          <div class="where">전사 Seller 실적 Tracking 체계 · 월간 인사이트 리포트</div>
         </div>
         <div class="trans-card">
-          <div class="t-no">03</div>
-          <h4>GTM · 파트너 생태계 운영</h4>
-          <p>정부부처 4곳·기관 8곳·전국 지자체와 협업해 지원사업을 만들고, 오프라인 행사·교육을 총괄했습니다. 파트너를 모으고 성장시키는 구조 설계는 업종과 무관하게 작동합니다.</p>
-          <div class="where">적용 예 — <b>유통 · 제조 · 공공 · B2B 서비스</b></div>
+          <div class="t-no">03 · 마케팅 · GTM</div>
+          <h4>업종이 다른 광고주와 캠페인을 운영했습니다</h4>
+          <p>보험·가상자산·커머스 광고주의 검색광고를 운영하고, 판매자 대상 프로모션과 성장 캠페인을 기획·실행했습니다.</p>
+          <div class="where">ROAS +1,500% · 슈퍼딜 신청 +14%</div>
+        </div>
+        <div class="trans-card">
+          <div class="t-no">04 · 파트너십 · 프로그램</div>
+          <h4>기관과 파트너를 모아 사업을 만들었습니다</h4>
+          <p>정부부처 4곳·기관 8곳·전국 지자체와 협업해 지원사업을 기획하고, 오프라인 행사·교육을 직접 총괄했습니다.</p>
+          <div class="where">400개사 지원 · 상생교육 만족도 4.7/5</div>
         </div>
       </div>
     </div>
@@ -590,7 +596,7 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
     <div class="sec-head reveal">
       <div class="sec-kicker">Career</div>
       <h2>커리어 타임라인 <span style="font-size:.6em;color:var(--muted);font-weight:700">총 9년 6개월</span></h2>
-      <p>커머스는 무대였고, 쌓은 역량은 정책 설계·데이터 기반 성과관리·GTM·파트너 운영입니다. 각 항목을 펼쳐 직무별 상세 성과를 확인하실 수 있습니다.</p>
+      <p>정책 기획부터 데이터 분석, GTM, 파트너 운영까지 — 직군을 넘나들며 성과를 만들어온 기록입니다. 각 항목을 펼쳐 직무별 상세 성과를 확인하실 수 있습니다.</p>
     </div>
 
     <div class="tl">
