@@ -559,7 +559,7 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker">Career</div>
-      <h2>커리어 타임라인 <span style="font-size:.6em;color:var(--muted);font-weight:700">총 9년 6개월</span></h2>
+      <h2>커리어 타임라인 <span id="career-tenure" style="font-size:.6em;color:var(--muted);font-weight:700">총 9년 6개월</span></h2>
       <p>각 항목을 펼쳐 직무별 상세 성과를 확인하실 수 있습니다.</p>
     </div>
 
@@ -1395,6 +1395,18 @@ footer .f-sub{color:#aab2d0;margin-top:14px;font-size:15.5px;max-width:560px}
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && !backdrop.hidden) closeEval();
   });
+})();
+</script>
+
+<script>
+(function(){
+  var el = document.getElementById('career-tenure');
+  if(!el) return;
+  var now = new Date();
+  var months = (now.getFullYear() - 2017) * 12 + (now.getMonth() + 1 - 4);
+  if(months < 0) months = 0;
+  var y = Math.floor(months / 12), m = months % 12;
+  el.textContent = '총 ' + (y ? y + '년 ' : '') + (m ? m + '개월' : (y ? '' : '0개월'));
 })();
 </script>
 
